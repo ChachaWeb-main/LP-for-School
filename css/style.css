@@ -202,19 +202,12 @@
     position: relative;
     margin-bottom: 250px;
   }
-  /*
-  テキストとボタンが画像の上に表示されるように「z-index」を設定
-  */
   #mainvisual .text {
     position: absolute;
     top: 280px;
     left: 10%;
     z-index: 10;
   }
-  /*
-  「text-shadow」で文字の輪郭に白い影をつけることで、
-  文字が背景画像に埋もれないようにする
-  */
   #mainvisual .text .title {
     font-size: 2.875em;
     font-weight: bold;
@@ -233,12 +226,6 @@
     transition: 0.3s;
     position: relative;
   }
-  /*
-  ボタンの右矢印
-  上と右にボーダーを設定し、「transform: rotate(45deg)」で
-  45度回転させることで矢印を作成
-  positionで位置を調整する
-  */
   #mainvisual .text .btn::after {
     content: "";
     width: 16px;
@@ -250,53 +237,25 @@
     top: 26px;
     right: 30px;
   }
-  /*
-  ホバー時は、opacityで透過させながら「transform: scale(1.05);」で
-  少しだけボタンのサイズを大きくする
-  */
   #mainvisual .text .btn:hover {
     opacity: 0.8;
     transform: scale(1.05);
   }
-  /*
-  メインビジュアル
-  animationを使用して、画像をフェードイン、フェードアウトで切り替えを行う。
-  ※画像のフェード切り替えは、学習のためにアニメーションを使用。
-  */
   #mainvisual .fade li {
     width: 75%;
     z-index: 1;
     position: absolute;
     top: 0;
     right: 0;
-    /* 最初は3枚の画像を非表示にしておく */
     opacity: 0;
-    /*
-    アニメーションを実行
-    fade：下で定義している「@keyframes fade」を実行
-    15s：「@keyframes fade」の処理を15秒かけて実行
-    infinite：アニメーションの処理を無限に繰り返す
-    */
     animation: fade 15s infinite;
   }
-  /*
-  1枚目の画像のアニメーション実行タイミングを設定
-  「animation-delay: 0s;」ですぐに実行
-  */
   #mainvisual .fade li:nth-child(1) {
     animation-delay: 0s;
   }
-  /*
-  2枚目の画像のアニメーション実行タイミングを設定
-  「animation-delay: 5s;」で5秒後に実行
-  */
   #mainvisual .fade li:nth-child(2) {
     animation-delay: 5s;
   }
-  /*
-  3枚目の画像のアニメーション実行タイミングを設定
-  「animation-delay: 10s;」で10秒後に実行
-  */
   #mainvisual .fade li:nth-child(3) {
     animation-delay: 10s;
   }
@@ -306,9 +265,6 @@
     height: 720px;
     object-fit: cover;
   }
-  /*
-  「box-shadow」で画像のまわりをぼかす
-  */
   #mainvisual .fade li::after {
     content: "";
     position: absolute;
@@ -318,17 +274,6 @@
     right: 0;
     box-shadow: inset 0px 0px 20px 20px #fff;
   }
-  /*
-  アニメーション処理
-  上の「animation」で15sを指定しているので下記の処理を15秒かけて実行
-  0%が0秒を表し、100%が15秒後を表す。
-
-  0%の「opacity: 0;」で非表示の状態からスタートし、
-  15%になるまでの間に少しづつ画像を表示（フェードイン）させる。
-  そこから30%の時点までは画像を表示させたままの状態を維持し、
-  45%の時点に向けて画像を非表示（フェードアウト）する。
-  そこから100%まで非表示の状態を維持する。
-  */
   @keyframes fade {
     0% {
       opacity: 0;
@@ -355,10 +300,6 @@
     background-color: #00a5e0;
     padding: 80px 0;
   }
-  /*
-  スライド左右共通
-  最初は「opacity: 0;」で非表示にしておく
-  */
   #reason .slide {
     width: 50%;
     display: flex;
@@ -388,25 +329,9 @@
     border-bottom-right-radius: 20px;
     margin-bottom: 40px;
   }
-  /*
-  アニメーション（スライド左）を実行
-
-  slide-left：下で定義している「@keyframes slide-left」を実行
-  0.5s：アニメーションが始まってから終わるまでの時間（0.5sかけて実行）
-  ease-out：アニメーションの変化（開始時は早く、終了時は緩やかに変化）
-  0s：アニメーションが始まるまでの時間（0sですぐに実行）
-  1：アニメーションの繰り返し回数（1回）
-  forwards：アニメーション終了時の状態をそのまま維持
-  */
   #reason .slide-left {
     animation: slide-left 0.5s ease-out 0s 1 forwards;
   }
-  /*
-  アニメーション処理
-
-  最初は「translateX(-50%);」で左側に隠しておく
-  100%（0.5秒）かけて要素を表示させながら元の位置へ移動させる
-  */
   @keyframes slide-left {
     0% {
       transform: translateX(-50%);
@@ -481,11 +406,7 @@
   #voice .item-left .balloon-text {
     margin-left: 25px;
   }
-  /* 
-  左のふきだしの矢印部分を設定
-  */
   #voice .item-left .balloon-text::before {
-    /* outline: 3px solid red; */
     content: "";
     position: absolute;
     top: 60%;
@@ -497,9 +418,6 @@
   #voice .item-right .balloon-text {
     margin-right: 25px;
   }
-  /*
-  右のふきだしの矢印部分を設定
-  */
   #voice .item-right .balloon-text::before {
     content: "";
     position: absolute;
@@ -509,25 +427,9 @@
     border: 15px solid transparent;
     border-left: 15px solid #e9f1fb;
   }
-  /*
-  アニメーションを実行
-
-  balloon：下で定義している「@keyframes balloon」を実行
-  0.5s：アニメーションが始まってから終わるまでの時間（0.5sかけて実行）
-  ease-out：アニメーションの変化（開始時は早く、終了時は緩やかに変化）
-  0s：アニメーションが始まるまでの時間（0sですぐに実行）
-  1：アニメーションの繰り返し回数（1回）
-  forwards：アニメーション終了時の状態をそのまま維持
-  */
   #voice .balloon {
     animation: balloon 0.5s ease-out 0s 1 forwards;
   }
-  /*
-  アニメーション処理
-
-  最初は「transform: scale(0.1);」で要素を小さくした状態で、「opacity: 0;」で非表示にしておく
-  0.5秒かけて要素を表示させながら元のサイズへ戻す
-  */
   @keyframes balloon {
     0% {
       transform: scale(0.1);
@@ -540,21 +442,31 @@
   }
 
 /* ----- section summary */
-  /*
-  アニメーションを実行
-
-  fall：下で定義している「@keyframes fall」を実行
-  10s：アニメーションが始まってから終わるまでの時間（10sかけて実行）
-  infinite：アニメーションの繰り返し回数(無限に繰り返す)
-  linear：アニメーションの変化（開始から終了まで一定に変化）
-  */
   #summary {
-    background: url("../img/light-sky_640.png") repeat center/80%;
     border-radius: 3%;
-    animation: fall 10s infinite linear;
     padding: 60px 0; 
     margin-bottom: 120px;
+    height: 100vh;
+    width: 100%;
+    background: #fff;
+    background: radial-gradient(
+      circle,
+      #fff 0%,
+      #00a5e0 100%
+    )
+    0 0 / 200% 100% repeat;
+    animation: summary 5s infinite alternate;
   }
+@keyframes summary {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+
   /*
   アニメーション処理
   */
@@ -572,17 +484,12 @@
     justify-content: space-between;
   }
   #summary .menu li {
-    /* outline: 3px solid red; */
     width: 48%;
     background-color: #fff;
     border-radius: 20px;
     padding: 60px;
     margin-bottom: 32px;
   }
-  /* 3つ目以降はmargin-bottomを設定しない */
-  /* #summary .menu li:nth-child(n + 3) {
-    margin-bottom: 0;
-  } */
   #summary .menu-title {
     font-weight: bold;
     line-height: 1;
